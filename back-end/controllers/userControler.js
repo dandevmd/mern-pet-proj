@@ -74,7 +74,7 @@ const loginUser = asyncHandler(async(req, res) => {
 //@description get current user
 //@route api/users/me
 //access Private
-const getMe = (req, res) => {
+const getMe = asyncHandler(async(req, res) => {
     const user = {
         id: req.user._id,
         name: req.user.name,
@@ -83,7 +83,7 @@ const getMe = (req, res) => {
     }
     res.status(200).json(req.user)
 
-}
+})
 
 
 //generate the unique user token
