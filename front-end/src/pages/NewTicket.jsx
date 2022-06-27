@@ -64,7 +64,7 @@ const NewTicket = () => {
               <option value="iPhone">iPhone</option>
               <option value="iMac">iMac</option>
               <option value="iPad">iPad</option>
-              <option value="Macbook">Macbook</option>
+              <option value="MacBook">Macbook</option>
             </select>
           </div>
 
