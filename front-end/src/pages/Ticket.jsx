@@ -22,7 +22,7 @@ const Ticket = () => {
         dispatch(getTicket(ticketId))
     }, [message, isError, dispatch, ticketId])
 
-    const closeOnClick = (ticketId) => {
+    const closeOnClick = () => {
         dispatch(closeTicket(ticketId))
         navigate('/tickets')
         toast.success('Ticked status changed to "closed"')
@@ -54,7 +54,7 @@ const Ticket = () => {
             </header>
 
             {ticket.status !== 'closed' && (
-                <button className="btn btn-block btn-danger" onClick={closeOnClick(ticketId)}>Close Ticket</button>
+                <button className="btn btn-block btn-danger" onClick={closeOnClick}>Close Ticket</button>
             )}
         </div>
     )
