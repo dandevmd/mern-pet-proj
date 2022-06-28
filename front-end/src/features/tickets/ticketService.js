@@ -41,7 +41,7 @@ const getTicket = async(ticketId, token) => {
     return response.data
 }
 
-// get ticket by id
+// close current ticket by id
 const closeTicket = async(ticketId, token) => {
     const config = {
         headers: {
