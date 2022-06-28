@@ -39,7 +39,7 @@ const Tickets = () => {
                     <div></div>
                 </div>
                { tickets.map((ticket)=>(
-                    <TicketItem key={ticket._id} ticket={ticket}/>
+                    <TicketItem key={ticket._id} ticket={ticket} />
                 ))}
             </div>
         </>

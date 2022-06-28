@@ -54,34 +54,37 @@ const getOneTicket = asyncHandler(async(req, res) => {
 //@route DELETE api/tickets/:id
 //access Private
 const deleteOneTicket = asyncHandler(async(req, res) => {
-        // Get user id in the JWT
-        const user = await User.findById(req.user.id)
+    // Get user id in the JWT
+    const user = await User.findById(req.user.id)
 
-        if (!user) {
-            res.status(401)
-            throw new Error('User not found')
-        }
+    if (!user) {
+        res.status(401)
+        throw new Error('User not found')
+    }
 
-        const ticket = await Ticket.findById(req.params.id)
+    const ticket = await Ticket.findById(req.params.id)
 
-        if (!ticket) {
-            res.status(404)
-            throw new Error('Ticket not found')
-        }
+    if (!ticket) {
+        res.status(404)
+        throw new Error('Ticket not found')
+    }
 
-        if (ticket.user.toString() !== req.user.id) {
-            res.status(401)
-            throw new Error('Not authorized')
-        }
+    if (ticket.user.toString() !== req.user.id) {
+        res.status(401)
+        throw new Error('Not authorized')
+    }
 
-        ticket.remove(ticket)
+    ticket.remove(ticket)
+    const tickets = await Ticket.find({ user: req.user.id })
 
-        res.status(200).json({ success: true })
 
-    })
-    //@description UPDATE one Ticket
-    //@route PUT api/tickets/:id
-    //access Private
+    res.status(200).json(tickets)
+
+})
+
+//@description UPDATE one Ticket
+//@route PUT api/tickets/:id
+//access Private
 const updateOneTicket = asyncHandler(async(req, res) => {
     // Get user id in the JWT
     const user = await User.findById(req.user.id)

@@ -44,7 +44,7 @@ const Ticket = () => {
         dispatch(getTicket(ticketId))
         dispatch(getNotes(ticketId))
 
-    }, [message, isError,  ticketId])
+    }, [message, isError, ticketId])
 
     //modal state change
     const openModal = () => setIsModalOpen(true)
