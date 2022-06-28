@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: false }))
 
 
 //serve the front end server because the production dont have client side
-if (process.end.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
     //set build folder as static
     app.use(express.static(path.join(__dirname, '../front-end/build')))
 
